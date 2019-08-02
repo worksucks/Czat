@@ -8,14 +8,14 @@ const io = socketIo(server);
 const UsersService = require('./UsersService');
 const usersService = new UsersService();
 
-app.use(express.statis(`${__dirname}/public`));
+app.use(express.static(`${__dirname}/public`));
 
 app.get('/', (req, res) =>{
   res.sendFile(`${__dirname}/index.html`);
 });
 
 io.on('connection', (socket) =>{
-  //miejsce dla funkcji, które zostaną wykoanane po podłaczeniu klienta
+
   socket.on('join', (name) =>{
     userService.addUser({
       id: socket.id,
@@ -27,9 +27,9 @@ io.on('connection', (socket) =>{
   });
 
   socket.on('disconnect', ()=>{
-    userService.removeUser(socket.id);
+    usersService.removeUser(socket.id);
     socket.broadcast.emit('update', {
-      users: usersService.gaeAllUsers()
+      users: usersService.getAllUsers()
     });
   });
 
