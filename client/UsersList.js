@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import styles from './UserList.css';
+import styles from './UsersList.css';
 
-cost Userlist = props => (
+const Userlist = props => (
   <div className={styles.Users}>
     <div className={styles.UserOnLine}>
     {props.users.length} people UserOnLine

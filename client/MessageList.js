@@ -8,7 +8,7 @@ const Message = props => {
   </div>
 }
 
-cost Messagelist = props => (
+const Messagelist = props => (
   <div className={styles.MessageList}>
     {
       props.messages.map((message, i) => {

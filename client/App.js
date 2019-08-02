@@ -13,7 +13,7 @@ const socket =io('/');
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {users: []. messages: []. text: '', name: ''};
+    this.state = {users: [], messages: [], text: '', name: ''};
   }
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   messageReceive(message) {
-    const message = [message, ...this.state.message];
+    const messages = [message, ...this.state.messages];
     this.setState({messages});
   }
 
@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   render () {
-    return.this.state.name !=='' this.renderLayout() : this.renderUserForm();
+    return this.state.name !==''? this.renderLayout() : this.renderUserForm();
   }
   renderLayout() {
     return (
