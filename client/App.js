@@ -6,7 +6,7 @@ import styles from './App.css';
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
 import UsersList from './UsersList';
-import Userform from './UserForm';
+import UserForm from './UserForm';
 
 const socket =io('/');
 
@@ -18,7 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     socket.on('message', message => this.messageReceive(message));
-    socket.on('update',({users})=>this.chatUpdate(users));
+    socket.on('update', ({users})=>this.chatUpdate(users));
   }
 
   messageReceive(message) {
@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   render () {
-    return this.state.name !==''? this.renderLayout() : this.renderUserForm();
+      return this.state.name !=='' ? this.renderLayout() : this.renderUserForm();
   }
   renderLayout() {
     return (
@@ -56,7 +56,7 @@ class App extends Component {
           </div>
         </div>
         <div className={styles.AppBody}>
-          <UserList
+          <UsersList
             users={this.state.users}
           />
           <div className={styles.MessagesWrapper}>
@@ -64,7 +64,7 @@ class App extends Component {
               messages={this.state.messages}
             />
             <MessageForm
-              onMessageSubmit={messahe => this.handleMessageSubmit(message)}
+              onMessageSubmit={message => this.handleMessageSubmit(message)}
               name={this.state.name}
             />
           </div>

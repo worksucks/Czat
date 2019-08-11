@@ -24,11 +24,11 @@ class MessageForm extends Component {
   render() {
     return(
       <form className={styles.MessageForm} onSubmit={e => this.handleSubmit(e)}>
-      <input
-        className={styles.MessageInput}
-        onChange={e => this.changeHandler(e)}
-        placeholder='Message'
-      />
+        <input
+          className={styles.MessageInput}
+          onChange={e => this.changeHandler(e)}
+          placeholder='Message'
+        />
       </form>
     );
   }

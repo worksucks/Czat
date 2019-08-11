@@ -1,6 +1,6 @@
 class UsersService {
   constructor() {
-    this.user = [];
+    this.users = [];
   }
 
   getAllUsers(){
@@ -15,7 +15,7 @@ class UsersService {
     this.users = [user, ...this.users];
   }
 
-  removeUsers(userId) {
+  removeUser(userId) {
     this.users = this.users.filter(user => user.id !==userId);
   }
 }

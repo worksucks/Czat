@@ -12,13 +12,16 @@ module.exports = (env) => {
         new OptimizeJsPlugin({
           sourceMap: false
         }),
-        new HtmlWebpackPlugin({
-          template:'client/index.html',
-          filename: 'index.html',
-          inject: 'body'
-        })
       )
     }
+
+    plugins.push(
+      new HtmlWebpackPlugin({
+        template:'client/index.html',
+        filename: 'index.html',
+        inject: 'body'
+      })
+    )
 
     const environment = env || 'production';
 
